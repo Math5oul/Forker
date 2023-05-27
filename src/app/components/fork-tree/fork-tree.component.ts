@@ -26,13 +26,12 @@ export class ForkTreeComponent {
   addChildNode(parentNode: ForkTreeNode) {
     const newNode: ForkTreeNode = {
       id: parentNode.children ? parentNode.children.length + 1 : 1,
-      name: `Child Node ${parentNode.children ? parentNode.children.length + 1 : 1}`
+      name: `${parentNode.name}.Child${parentNode.children ? parentNode.children.length + 1 : 1}`
     };
 
     if (!parentNode.children) {
       parentNode.children = [];
     }
-
     parentNode.children.push(newNode);
   }
 }
