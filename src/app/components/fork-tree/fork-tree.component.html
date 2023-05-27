@@ -1,1 +1,14 @@
-<p>fork-tree works!</p>
+<div class="tree-node" *ngFor="let node of treeData">
+  <div>
+    <span>{{ node.name }}</span>
+    <button (click)="addChildNode(node)">Add Child Node</button>
+  </div>
+  <ng-container *ngIf="node.children && node.children.length > 0">
+    <app-fork-tree [treeData]="node.children"></app-fork-tree>
+  </ng-container>
+</div>
+
+<div class="add-node">
+  <input type="text" [(ngModel)]="newNodeName" placeholder="Node name">
+  <button (click)="addRootNode()">Add Root Node</button>
+</div>
